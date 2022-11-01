@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from 'react';
 import { Device } from './framework7/framework7-lite.esm.bundle.js';
 import {
