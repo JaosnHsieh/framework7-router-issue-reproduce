@@ -23,18 +23,18 @@ const routes = [
     }: {
       $f7router: Framework7Extensions['$f7router'];
     }) => {
+      // console.log(`$ $f7router`,$f7router)
       return (
         <Page>
           <Navbar title="My App" />
+          <p>
+            {`To reproduce this router related issue:`}<br/>
+            {`1. Click "map" icon and go to Page "A" by clicking A smart select popver`}<br/>
+            {`2. Click back from A`}<br/>
+            {`3. Click "gear_alt" icon to Page B and click again to Page C, click back in C and Click back in B`}<br/>
+            {`4. See console, router unexpected request url "/fruits-select/"`}<br/>
+          </p>
           <Block>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-              eleifend, elit vitae scelerisque vulputate, tortor velit tempus
-              dui, et luctus tellus justo nec velit. Duis scelerisque in tellus
-              et pretium. Ut faucibus fringilla risus, ut dapibus nunc vehicula
-              sit amet. Donec posuere nunc non fermentum commodo.
-            </p>
-          </Block>
           <Link
             smartSelect
             smartSelectParams={{
@@ -66,16 +66,11 @@ const routes = [
               <option value="b">b</option>
             </select>
           </Link>
+          </Block>
           <Block>
             <Link iconF7="gear_alt" href={'/b'} />
           </Block>
-          <Block>
-            <List>
-              {[1, 2, 3].map((n) => (
-                <ListItem key={n} title={`Item ${n}`} />
-              ))}
-            </List>
-          </Block>
+          
         </Page>
       );
     },
@@ -111,15 +106,17 @@ const routes = [
     }) => (
       <Page name="pageB">
         <Navbar
-          backLink="Back"
+        backLink={'Back'}
+        backLinkForce={true}
+          // backLink="/"
           title="Page B"
-          onBackClick={() => {
-            $f7router.navigate('/');
-            // setTimeout(() => {
-            //   console.log(`$ $f7router.navigate(PATHS.home); in setTimeout`);
-            //   $f7router.navigate(PATHS.home);
-            // }, 1000);
-          }}
+          // onBackClick={() => {
+          //   $f7router.navigate('/');
+          //   // setTimeout(() => {
+          //   //   console.log(`$ $f7router.navigate(PATHS.home); in setTimeout`);
+          //   //   $f7router.navigate(PATHS.home);
+          //   // }, 1000);
+          // }}
         ></Navbar>
         <Block>
           <Link href="/c">Page C</Link>

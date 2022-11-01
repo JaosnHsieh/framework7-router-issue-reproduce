@@ -440,6 +440,8 @@ function backward(el, backwardOptions) {
   return router;
 }
 function loadBack(backParams, backOptions, ignorePageChange) {
+  console.trace();
+  console.log('$ backParams',backParams)
   const router = this;
 
   if (!router.allowPageChange && !ignorePageChange) return router;
